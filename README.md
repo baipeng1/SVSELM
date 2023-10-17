@@ -60,11 +60,3 @@ CUDA_VISIBLE_DEVICES=0 python tasks/run.py --config usr/configs/gezixi.yaml --ex
 CUDA_VISIBLE_DEVICES=0 python tasks/run.py --config usr/configs/gezixi.yaml --exp_name gezixi --reset --infer 
 ```
 
-
-## Citation
-    @article{liu2021diffsinger,
-      title={Diffsinger: Singing voice synthesis via shallow diffusion mechanism},
-      author={Liu, Jinglin and Li, Chengxi and Ren, Yi and Chen, Feiyang and Liu, Peng and Zhao, Zhou},
-      journal={arXiv preprint arXiv:2105.02446},
-      volume={2},
-      year={2021}}
