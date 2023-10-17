@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="./js/jquery.js" ></script>
+</head>
 
+<body style="text-align:center">
+    <h1>Improving Chinese Pop Song and Hokkien Gezi Opera Singing Voice Synthesis by Enhancing Local Modeling</h1>
+    <img src="img/fig1.jpg" />
+    <h2>Samples</h2>
+
+
+<table style="margin-left:auto;margin-right:auto;" border=1>
+  <tr><h3>PopCS dataset</h3>
+    </tr><br>
+    <tr><td colspan="6">1.我终于得救@我不想再献丑@没办法不好吗(phone:<BOS> uo | zh ong | v | d e | j iou <SEP> uo | b u | x iang | z ai | x ian | ch ou <SEP> m ei | b an | f a | b u | h ao | m a <EOS>)</td>
+    </tr>
+    <tr>
+      <td>Recording</td>
+      <td>Baseline</td>
+      <td>Baseline-T+C+A(Our)</td>
+      <td>N-Singer</td>
+      <td>Baseline+GAN</td>
+      <td>DiffSinger</td>
+    </tr>
+    <tr>
+      <td><audio controls><source src="Audio samples/Pop Song/1recording.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/1FFT-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/1FFT-Singer+our methods.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/1N-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/1Baseline+GAN.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/1Diffsinger.wav"></audio></td>
+    </tr>
+
+        <tr><td colspan="6">2.我终于看到@所有梦想都开花@追逐的年轻@歌声多嘹亮(phone:<BOS> uo | zh ong | v | k an | d ao <SEP> s uo | iou | m eng | x iang | d ou | k ai | h ua <SEP> zh uei | zh u | d e | n ian | q ing <SEP> g e | sh eng | d uo | l iao | l iang <EOS>)</td>
+    </tr>
+    <tr>
+      <td>Recording</td>
+      <td>Baseline</td>
+      <td>Baseline-T+C+A(Our)</td>
+      <td>N-Singer</td>
+      <td>Baseline+GAN</td>
+      <td>DiffSinger</td>
+    </tr>
+    <tr>
+      <td><audio controls><source src="Audio samples/Pop Song/2recording.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/2FFT-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/2FFT-Singer+our methods.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/2N-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/2Baseline+GAN.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/2Diffsinger.wav"></audio></td>
+    </tr>
+
+            <tr><td colspan="6">3.就一点喜欢@说不上恨别纠缠@别装作感叹(phone:<BOS> j iou | i | d ian | x i | h uan <SEP> sh uo | b u | sh ang | h en | b ie | j iou | ch an <SEP> b ie | zh uang | z uo | g an | t an <EOS>)</td>
+    </tr>
+    <tr>
+      <td>Recording</td>
+      <td>Baseline</td>
+      <td>Baseline-T+C+A(Our)</td>
+      <td>N-Singer</td>
+      <td>Baseline+GAN</td>
+      <td>DiffSinger</td>
+    </tr>
+    <tr>
+      <td><audio controls><source src="Audio samples/Pop Song/3recording.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/3FFT-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/3FFT-Singer+our methods.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/3N-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/3Baseline+GAN.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Pop Song/3Diffsinger.wav"></audio></td>
+    </tr>
+   </table>
+
+
+   <table style="margin-left:auto;margin-right:auto;" border=1>
+
+    <tr><h3>Hokkien Gezi Opera dataset</h3>
+    </tr><br>
+    <tr><td colspan="6">1.白头偕老永伴终生伴终生(phone:sp p iet tʰ au h u k ai l ə ə sp iŋ pʰ uⁿaⁿ ts ioŋ s in sp pʰ uⁿaⁿ ts ioŋ s in ŋ̩ sp)</td>
+    </tr>
+    <tr>
+      <td>Recording</td>
+      <td>Baseline</td>
+      <td>Baseline-T+C+A(Our)</td>
+      <td>N-Singer</td>
+      <td>Baseline+GAN</td>
+      <td>DiffSinger</td>
+    </tr>
+    <tr>
+      <td><audio controls><source src="Audio samples/Gezi Opera/1recording.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/1FFT-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/1FFT-Singer+our methods.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/1N-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/1Baseline+GAN.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/1Diffsinger.wav"></audio></td>
+    </tr>
+        <tr><td colspan="6">2.笙歌同调琴瑟同音(phone:sp s iŋ k ə ə ə ə ə t oŋ t iau sp kʰ im m̩ s ik t o o o oŋ ŋ̩ im sp)</td>
+    </tr>
+    <tr>
+      <td>Recording</td>
+      <td>Baseline</td>
+      <td>Baseline-T+C+A(Our)</td>
+      <td>N-Singer</td>
+      <td>Baseline+GAN</td>
+      <td>DiffSinger</td>
+    </tr>
+    <tr>
+      <td><audio controls><source src="Audio samples/Gezi Opera/2recording.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/2FFT-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/2FFT-Singer+our methods.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/2N-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/2Baseline+GAN.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/2Diffsinger.wav"></audio></td>
+    </tr>
+        <tr><td colspan="6">3.从今你我影随身(phone:sp ts ioŋ k i in l i i i i g ua a sp i i iŋ ŋ̩ s ui i i i s in sp)</td>
+    </tr>
+    <tr>
+      <td>Recording</td>
+      <td>Baseline</td>
+      <td>Baseline-T+C+A(Our)</td>
+      <td>N-Singer</td>
+      <td>Baseline+GAN</td>
+      <td>DiffSinger</td>
+    </tr>
+    <tr>
+      <td><audio controls><source src="Audio samples/Gezi Opera/3recording.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/3FFT-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/3FFT-Singer+our methods.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/3N-Singer.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/3Baseline+GAN.wav"></audio></td>
+      <td><audio controls><source src="Audio samples/Gezi Opera/3Diffsinger.wav"></audio></td>
+    </tr>
+   </table>
+
+
+
+
+</body>
+</html>
