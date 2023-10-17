@@ -1,0 +1,146 @@
+base_config:
+  - ./popcs_ds_beta6_offline.yaml
+
+# fs2_ckpt: 'checkpoints/diffopera_fs2/model_ckpt_steps_100000.ckpt' # empty if train fs2
+fs2_ckpt: ''
+# phnrec_ckpt: 'checkpoints/phn_rec/model_ckpt_steps_16000.ckpt'
+phnrec_ckpt: ''
+
+# diffusion
+sampling_method: 'pc'  # 'pc' or 'ode'
+sampling_noise_removal: true # denoising in the end of sampling
+sampling_predictor: 'euler_maruyama' # 'reverse_diffusion' or 'ancestral_sampling' or 'euler_maruyama'
+sampling_corrector: 'none' # 'langevin' or 'ald'
+sampling_snr: 0.16 # signal-noise-ratio, used in corrector
+sampling_n_steps_each: 1 # The number of corrector steps per predictor update
+sampling_probability_flow: false # whether to use probability flow sampling
+
+training_continuous: false # Whether to use continuous time training
+
+sde: 'musde' # 'musde' or 'vpsde' or 'subvpsde' or 'vesde', sde for diffusion
+beta_min: 0.05
+beta_max: 20
+eps: 0.001
+num_steps: 100 # steps for sampling
+
+# diffsinger params
+timesteps: 100
+K_step: 100
+gaussian_start: true
+diff_loss_type: l1
+diff_decoder_type: 'diffnet' # 'wavenet' or 'unet' or 'diffnet'
+residual_layers: 20
+residual_channels: 256
+
+# model arch
+hidden_size: 256
+enc_layers: 4
+dec_layers: 4
+predictor_layers: 4
+
+# training
+# task_cls: usr.gezixi_task.FastSpeech2TestTask
+# task_cls: usr.phone_rec_task.PhnRecTask
+task_cls: tasks.tts.fs2.FastSpeech2Task
+#task_cls: usr.diffsinger_task.DiffSingerMIDITask
+# data augment
+use_data_aug: false # set it to false in test period, because we realize it in collater()
+re_prob: 0.5
+re_rate: 0.3
+
+max_updates: 160000
+lambda_ph_dur: 0. # phoneme duration loss factor
+lambda_word_dur: 0. # word duration loss factor
+lambda_sent_dur: 0. # sentence duration loss factor
+lambda_energy: 0. # energy loss factor
+lambda_f0: 0.
+lambda_f0_deriv: 0.
+lambda_uv: 0.
+lambda_phnrec_ce: 0.
+lr: 0.001
+pitch_loss: l2
+warmup_updates: 5000
+weight_decay: 0
+decay_steps: 20000
+# max_sentences: 12
+max_tokens: 8000  # max number of mel frame in a mini-batch
+ds_workers: 8
+
+use_slur_embed: true # true if use slur info
+use_energy_embed: false
+use_gt_dur: true
+use_gt_f0: true # vocoder needs gt f0
+use_pitch_embed: true # vocoder needs gt f0
+use_pos_embed: true
+use_spk_embed: true
+use_spk_id: false
+use_uv: true # always true
+use_midi: false
+use_phnrec: false
+
+train_fs2: true # if false ,only train diffusion model
+reset_optimizer: false
+reset_lr_scheduler: false
+reset_training_step: false
+pe_enable: false # false if use gt f0 or predicted f0
+pe_ckpt: 'checkpoints/0102_xiaoma_pe'
+
+endless_ds: false # true to use recurrent data sampler
+num_valid_plots: 1 # num of plot in log about valid data
+save_best: true # true to save best model respecting validition loss
+num_ckpt_keep: 3
+val_check_interval: 5000
+save_gt: true # save gt data when test
+
+# data process
+max_frames: 8000 # max frames of a single wav piece item
+binarizer_cls: data_gen.singing.binarize.GeZiBinarizer
+raw_data_dir: 'data/raw/GeZiXi_dup'
+processed_data_dir: 'data/processed/GeZiXi_dup'
+# binary_data_dir: 'data/binary/GeZiXi_dup'
+binary_data_dir: 'data/binary/GeZiXi_dup/'
+num_spk: 5
+datasets: [
+  'GeZiXi_dup',
+]
+test_prefixes: [
+  '千古长恨-此去云南路千里-赵美玉-闺门旦', # 七字调
+  '三请樊梨花-双脚跪落啊妻灵前-薛丁山-小生', # 大哭
+  '杨门女将-你本是杨家传宗将-穆桂英-刀马旦', # 小哭
+  '沈园情-从今你我影随身-唐婉-闺门旦', # 梅花调
+  '平贵别窑-二次战鼓-薛平贵-武生' # 杂碎调
+]
+# test_prefixes: [
+#   '0d4060f5',
+#   '0deac1f4',
+#   '1b3c2d50',
+#   '2c1c676d',
+#   '06a1db5e'
+# ]
+reset_phone_dict: true
+binarization_args:
+  with_wav: true
+  with_spk_embed: true
+  with_align: true
+  shuffle: true
+  with_slur: true
+  with_txt: true
+
+##fs2 training process
+#task_cls: tasks.tts.fs2.FastSpeech2Task
+##vocoder: usr.singingvocoder.highgan.HighGAN
+##vocoder_ckpt: checkpoints/h_2_model/checkpoint-530000steps.pkl
+#vocoder: vocoders.hifigan.HifiGAN
+#vocoder_ckpt: checkpoints/0109_hifigan_bigpopcs_hop128
+#use_nsf: true
+#
+## config for experiments
+#max_tokens: 18000
+#use_spk_embed: true
+#num_valid_plots: 10
+#max_updates: 160000
+#save_gt: true
+#
+## tmp:
+##pe_enable: true
+##pe_ckpt: ''

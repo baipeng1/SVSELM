@@ -1,0 +1,17 @@
+six==1.16.0
+sklearn==0.0
+SoundFile==0.10.3.post1
+soupsieve==2.3
+sympy==1.9
+tensorboard==1.15.0
+tensorboardX==2.4
+test-tube==0.7.5
+TextGrid==1.5
+torchvision==0.9.1
+tqdm==4.62.3
+typing-extensions==3.10.0.2
+urllib3==1.26.7
+uuid==1.30
+webrtcvad==2.0.10
+Werkzeug==2.0.2
+zipp==3.6.0
